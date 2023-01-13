@@ -1,0 +1,32 @@
+#include<stdio.h>
+int main()
+{
+	int a[20],n,i,key,flag=0,f,l,m;
+	printf("Enter the size of array: ");
+	scanf("%d",&n);
+	printf("ENTER THE ELEMENTS IN ASCENDING ORDER : ");
+	for(i=0;i<n;i++)
+	scanf("%d",&a[i]);
+	printf("Enter the key value: ");
+	scanf("%d",&key);
+	f=0;
+	l=n-1;
+	while (f<=l)
+	{
+		m=(f+l)/2;
+		if(a[m]==key)
+		{
+			flag=1;
+			break;
+		}
+		else if(a[m]<key)
+		f=m+1;
+		else if(a[m]>key)
+		l=m-1;
+	}
+	if(flag==1)
+	printf("Element is FOUND");
+	else
+	printf("Element is NOT FOUND");
+	
+}
