@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+	int n,arr[50],i,pos,ele,ch;
+	do
+	{
+		printf("Enter the size of the array: ");
+		scanf("%d",&n);
+		printf("Enter the elements in the array: ");
+		for(i=0;i<n;i++)
+		scanf("%d",&arr[i]);
+		printf("1 for insertion\n");
+		printf("2 for deletion\n");
+		printf("3 for display\n");
+		printf("Enter the choice: \n");
+		scanf("%d",&ch);
+		switch(ch)
+		{
+			case 1:
+				printf("Enter the position of element: ");
+				scanf("%d",&pos);
+				printf("Enter the element: ");
+				scanf("%d",&ele);
+				if(pos>n)
+				printf("INVALID INPUT");
+				else
+				{
+					for(i=n-1;i>=pos-1;i--)
+					arr[i+1]=arr[i];
+					arr[pos]=ele;
+					printf("array after insersion :\n");
+					for(i=0;i<=n;i++)
+					printf("%d\n",arr[i]);
+				}
+			break;
+			case 2:
+				printf("Enter the position of element: ");
+				scanf("%d",&pos);
+				if(pos>n)
+				printf("DELETION NOT POSSIBLE");
+				else
+				{
+					for(i=pos;i<n;i++)
+					arr[i]=arr[i+1];
+					printf("array after deletion :\n");
+					for(i=0;i<=n-2;i++)
+					printf("%d\n",arr[i]);
+				}
+			break;
+			case 3:
+				
+				for(i=0;i<n;i++)
+				printf("%d\n",arr[i]);
+			break;
+			case 4:
+				exit(0);
+			default:
+			printf("Enter the number between 1 to 4 ");
+		}	
+	}
+	while(ch>0 && ch<=4);
+}
